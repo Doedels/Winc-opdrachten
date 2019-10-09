@@ -113,7 +113,7 @@ let lichtGewichten = superheroes.filter( e => parseInt(e.weight) < 190);
 console.log(lichtGewichten);
 
 // - Maak een array met de **namen** van de superhelden die 200 pounds wegen
-let zwaarGewichten = superheroes.filter( e => parseInt(e.weight) > 200).map( e => e.name);
+let zwaarGewichten = superheroes.filter( e => parseInt(e.weight) === 200).map( e => e.name);
 console.log(zwaarGewichten);
 
 // - Maak een array met alle comics waar de superhelden hun "first apprearances" hebben gehad
