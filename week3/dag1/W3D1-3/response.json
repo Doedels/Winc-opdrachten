@@ -1,0 +1,22 @@
+{
+  "args": {}, 
+  "data": "{\"opleiding\":\"Winc Academy\",\"oordeel\":\"is de allerbeste\"}", 
+  "files": {}, 
+  "form": {}, 
+  "headers": {
+    "Accept": "*/*", 
+    "Accept-Encoding": "gzip, deflate", 
+    "Cache-Control": "no-cache", 
+    "Content-Length": "57", 
+    "Content-Type": "application/json", 
+    "Host": "httpbin.org", 
+    "Postman-Token": "06c31213-a47a-4ed7-8bec-6e677ae704a7", 
+    "User-Agent": "PostmanRuntime/7.18.0"
+  }, 
+  "json": {
+    "oordeel": "is de allerbeste", 
+    "opleiding": "Winc Academy"
+  }, 
+  "origin": "77.251.9.4, 77.251.9.4", 
+  "url": "https://httpbin.org/post"
+}

@@ -1,0 +1,39 @@
+opdracht a)
+Doe een GET request op https://wincacademy.nl/
+
+Wat is de response? 
+  200 OK
+  en heel veel HTML code
+
+Kun je ergens in de header terugvinden op wat voor type server onze website draait?
+  Apache
+
+opdracht b)
+Stel voor onderstaande oefeningen de header in met **key** Content-Type en **value** application/json
+
+1. Doe een POST request op https://httpbin.org/post , met als **body** het onderstaande object, maar dan omgebouwd tot json (je kunt Googlen hoe je dit doet 😃)
+
+    {opleiding:'Winc Academy', 
+    oordeel:'is de allerbeste'}
+
+    JSON = {"opleiding":"Winc Academy","oordeel":"is de allerbeste"}
+
+Wat is de response?
+  Zie bestand response.json in dezelfde map als deze tekst.
+
+Waar zie je de HTTP status code?
+  in postman zie je in de balk boven de response aan de rechterkant ->    200 OK 471ms 727 B
+
+  Als je boven die getallen hovert met de muis pointer krijg je nog leuke statisstieken te zien.
+
+2. Behoud de json die je stuurt, maar verander de request naar een DELETE en de url naar https://httpbin.org/delete-alles
+
+Wat is nu de response?
+  Zie bestand response.json in dezelfde map als deze tekst.
+
+Welke HTTP status code krijg je nu? Waarom krijg je deze terug denk je?
+  404 Not Found
+  Ik denk dat de url: 'https://httpbin.org/delete-alles'  niet bestaat
+
+
+
