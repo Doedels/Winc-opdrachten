@@ -1,7 +1,7 @@
-const API_KEY = 'ad693d680cfe90967dd51d4a60ee761c';
+require('dotenv').config();
 
 async function getMovieGenres() {
-    const movieGenreapiUrl = `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}`;
+    const movieGenreapiUrl = `https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.API_KEY}`;
     const result = await fetch(movieGenreapiUrl, {
         method: "GET"
     })
