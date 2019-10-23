@@ -1,0 +1,42 @@
+body {
+  text-align: center;
+}
+
+.link-1:hover {
+  color: lightblue;
+}
+
+.link-2:active {
+  color: red;
+}
+
+.link-3:visited {
+  color: yellow;
+}
+
+.link-4:focus {
+  color: purple;
+}
+
+div {
+  width: 100px;
+  height: 100px;
+  background: grey;
+  margin: 10px auto;
+}
+
+.div-1:hover {
+  background: lightblue;
+}
+
+.div-2:active {
+  background: red;
+}
+
+.div-3:visited {
+  background: yellow;
+}
+
+.div-4:focus {
+  background: purple;
+}
