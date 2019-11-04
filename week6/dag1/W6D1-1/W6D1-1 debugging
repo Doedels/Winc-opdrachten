@@ -1,0 +1,38 @@
+Bug 1:
+In App.js regel 31:
+<GameOver chosenWord={game.chosenWord} wordGuesed={wordWasGuessed} />
+Moet zijn:
+<GameOver chosenWord={game.chosenWord} wordGuessed={wordWasGuessed} />
+
+Bug 2:
+in AppContainer.js regel 50:
+const newGuessedLetters = [...this.state.guesedLetters];
+Moet zijn:
+const newGuessedLetters = [...this.state.guessedLetters];
+
+Bug 3:
+in App.js regel 18:
+guessedLetters.includes(letter)
+Moet zijn:
+!guessedLetters.includes(letter)
+
+Bug 4:
+in TextInput.s regel 15:
+disabled={props.gameIsOver ? "disabled" : ""}
+Moet zijn:
+disabled={props.gameIsOver || props.currentChosenLetter.length < 1 ? "disabled" : ""}
+
+Bug 5:
+in App.js regel 30 (en 31):
+getWrongLetters(game.chosenWord, game.guessedLetters).length > game.maxGuesses
+Moet zijn:
+getWrongLetters(game.chosenWord, game.guessedLetters).length >= game.maxGuesses
+
+Bug 6:
+In App.js vanaf regel 45:
+const inputGiven = this.state.currentChosenLetter.length > 0;
+if (inputGiven) {
+Gewijzigd in:
+const inputGiven = this.state.currentChosenLetter.length > 0;
+const notAlreadyGeussed = !this.state.guessedLetters.includes(this.state.currentChosenLetter);
+if (inputGiven && notAlreadyGeussed) {
