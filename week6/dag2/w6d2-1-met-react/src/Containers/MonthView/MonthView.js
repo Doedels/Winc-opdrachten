@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Appointment from '../../Components/Appointment/Appointment';
 import { tandartsenArray, assistentenArray, patientenArray } from '../../data/data';
 
 class MonthView extends Component {
@@ -11,7 +12,17 @@ class MonthView extends Component {
     render() {
         return (
             <div>
-                <p>{this.state.tandartsen[0].name}</p>
+                <Appointment
+                    monthView={true}
+                    patient={this.state.patienten[0]}
+                    tandarts={this.state.tandartsen[0]}
+                    assistent={this.state.assistenten[0]}
+                />
+                <Appointment
+                    patient={this.state.patienten[0]}
+                    tandarts={this.state.tandartsen[0]}
+                    assistent={this.state.assistenten[0]}
+                />
 
             </div>
         )
