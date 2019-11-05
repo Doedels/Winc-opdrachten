@@ -350,12 +350,17 @@ const start = () => {
   try {
     createCalendarView();
   } catch { }
-
-  console.log(tandartsen);
-  console.log(assistenten);
-  console.log(patienten[0]);
-  console.log(patienten.length);
-
 };
 
-document.addEventListener("DOMContentLoaded", start);
+const setEventListeners = () => {
+  document.querySelectorAll(".patient").forEach(patient => {
+    return patient.addEventListener('click', (event => {
+      console.log(event.target);
+    }))
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  start();
+  setEventListeners();
+});
