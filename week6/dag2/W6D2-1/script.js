@@ -1,31 +1,31 @@
 const names = [
   {
-    name: "Yasmijn van",
-    surname: "Vliet",
+    name: "Yasmijn",
+    surname: "van Vliet",
     gender: "female",
     region: "Netherlands"
   },
   {
-    name: "Victor van",
-    surname: "Loon",
+    name: "Victor",
+    surname: "van Loon",
     gender: "male",
     region: "Netherlands"
   },
   {
-    name: "Ido van den",
-    surname: "Heuvel",
+    name: "Ido",
+    surname: "van den Heuvel",
     gender: "male",
     region: "Netherlands"
   },
   {
-    name: "Rob van den",
-    surname: "Brink",
+    name: "Rob",
+    surname: "van den Brink",
     gender: "male",
     region: "Netherlands"
   },
   {
-    name: "Thijs van",
-    surname: "Vliet",
+    name: "Thijs",
+    surname: "van Vliet",
     gender: "male",
     region: "Netherlands"
   },
@@ -247,16 +247,57 @@ const names = [
   }
 ];
 
-const tandartsen = names.splice(0, 4);
-const assistenten = names.splice(0, 2);
-const patienten = names.map((patient, index) => {
-  return { ...patient, id: index }
+const getRandomPhoneNumber = () => {
+  return Math.floor(Math.random() * 1000000000)
+}
+
+const tandartsen = names.splice(0, 4).map((tandarts, index) => {
+  return {
+    name: tandarts.name,
+    surname: tandarts.surname,
+    ziek: false,
+    id: index,
+    email: `${tandarts.name}@tandartspraktijkbvt.nl`,
+    phone: getRandomPhoneNumber()
+  }
 });
 
-const getRandomName = () => {
-  const person = names[Math.floor(Math.random() * 50)];
+const assistenten = names.splice(0, 2).map((assistent, index) => {
+  return {
+    name: assistent.name,
+    surname: assistent.surname,
+    ziek: false,
+    id: index,
+    email: `${assistent.name}@tandartspraktijkbvt.nl`,
+    phone: getRandomPhoneNumber()
+  }
+});
+
+const patienten = names.map((patient, index) => {
+  return {
+    name: patient.name,
+    surname: patient.surname,
+    ziek: false,
+    id: index,
+    email: `${patient.name.split(' ').join('')}${patient.surname}@xs4all.nl`,
+    phone: getRandomPhoneNumber()
+  }
+});
+
+const getTandarts = () => {
+  const person = tandartsen[Math.floor(Math.random() * 4)];
   return `${person.name} ${person.surname}`;
-};
+}
+
+const getAssistent = () => {
+  const person = assistenten[Math.floor(Math.random() * 2)];
+  return `${person.name} ${person.surname}`;
+}
+
+const getPatient = () => {
+  const person = patienten[Math.floor(Math.random() * 50)];
+  return `${person.name} ${person.surname}`;
+}
 
 const getRandomTime = () => {
   let goodTime = false;
@@ -276,9 +317,9 @@ const createDayView = () => {
   for (i = 0; i < 30; i++) {
     appointments.push(`<li class="appointment">
       <div class="time">${getRandomTime()}</div>
-      <div class="patient">Patiënt: ${getRandomName()}</div>
-      <div class="dentist">Tandarts: ${getRandomName()}</div>
-      <div class="assistant">Assistent: ${getRandomName()}</div>
+      <div class="patient">Patiënt: ${getPatient()}</div>
+      <div class="dentist">Tandarts: ${getTandarts()}</div>
+      <div class="assistant">Assistent: ${getAssistent()}</div>
       </li>`);
   }
   document.querySelector(".dayview").innerHTML = appointments.join("");
@@ -290,7 +331,7 @@ const createDayOnCalendar = numAppointments => {
     appointments.push(`
       <div class="appointment">
         <span class="time">${getRandomTime()}</span>
-        <span class="patient">${getRandomName()}</span>
+        <span class="patient">${getPatient()}</span>
       </div>`);
   }
   return `<div class="day">${appointments.join("")}</div>`;
