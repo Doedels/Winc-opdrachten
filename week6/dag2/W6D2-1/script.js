@@ -299,24 +299,17 @@ const getPatient = () => {
   return `${person.name} ${person.surname}`;
 }
 
-const getRandomTime = () => {
-  let goodTime = false;
-  let hour;
-  while (goodTime === false) {
-    hour = Math.floor(Math.random() * 24);
-    if (hour > 7 && hour < 19) {
-      goodTime = true;
-    }
-  }
-  return `${hour}:00u`;
-};
+getNextTimeSlot = (num) => {
+  const time = [8, 9, 10, 11, 13, 14, 15, 16];
+  return `${time[num % 8]}:00u`;
+}
 
 const createDayView = () => {
   const appointments = [];
 
   for (i = 0; i < 30; i++) {
     appointments.push(`<li class="appointment">
-      <div class="time">${getRandomTime()}</div>
+      <div class="time">${getNextTimeSlot(i)}</div>
       <div class="patient">Patiënt: ${getPatient()}</div>
       <div class="dentist">Tandarts: ${getTandarts()}</div>
       <div class="assistant">Assistent: ${getAssistent()}</div>
@@ -330,7 +323,7 @@ const createDayOnCalendar = numAppointments => {
   for (let i = 0; i < numAppointments; i++) {
     appointments.push(`
       <div class="appointment">
-        <span class="time">${getRandomTime()}</span>
+        <span class="time">${getNextTimeSlot(i)}</span>
         <span class="patient">${getPatient()}</span>
       </div>`);
   }
